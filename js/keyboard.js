@@ -1,6 +1,19 @@
 /**
  * 键盘操作相关对象
  */
+
+  function bf(){
+    var audio = document.querySelector("audio");
+    // if(audio!==null){             
+    //    //检测播放是否已暂停.audio.paused 在播放器播放时返回false.
+    //     alert(audio.paused);
+     if(audio.paused)                     {                 
+         audio.play();//audio.play();// 这个就是播放  
+     }else{
+      audio.pause();// 这个就是暂停
+     }
+    } 
+
 var KeyBoard = function() {
   document.onkeydown = this.keydown.bind(this);
   document.onkeyup = this.keyup.bind(this);
@@ -17,6 +30,7 @@ KeyBoard.prototype = {
     switch(key) {
       // 点击空格
       case 32: 
+        bf();
       	this.pressedSpace = true;
         break;
       // 点击向左
@@ -40,6 +54,7 @@ KeyBoard.prototype = {
     var key = event.keyCode;
     switch(key) {
       case 32: 
+        bf();
       	this.pressedSpace = false;	
         break;
       case 37:
